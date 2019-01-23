@@ -9,7 +9,7 @@ namespace Industryconnect.Pages
     {
         public void addTM(IWebDriver driver)
         {
-            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/Industryconnect/Industryconnect/TestData.xlsx", "TimeAndMaterialPage");
+            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/IndustryconnectSpecFlow/IndustryconnectSpecFlow/TestData.xlsx", "TimeAndMaterialPage");
             //Navigate to Time and Material page
             IWebElement administration = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
             administration.Click();
@@ -50,7 +50,7 @@ namespace Industryconnect.Pages
             Thread.Sleep(1000);
             IWebElement lastPage = driver.FindElement(By.XPath("//*[@title=\"Go to the last page\"]"));
             lastPage.Click();
-            IWebElement codeToCheck = driver.FindElement(By.XPath("//td[text()='Oiyo']"));
+            /*IWebElement codeToCheck = driver.FindElement(By.XPath("//td[text()='Oiyo']"));
             if (codeToCheck.Text == "Oiyo")
             {
                 Console.WriteLine("Time and Management created successfully");
@@ -59,7 +59,7 @@ namespace Industryconnect.Pages
             else
             {
                 Console.WriteLine("Test Failed");
-            }
+            }*/
 
         }
 
@@ -85,7 +85,7 @@ namespace Industryconnect.Pages
 
         internal void editTM(IWebDriver driver)
         {
-            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/Industryconnect/Industryconnect/TestData.xlsx", "TimeAndMaterialPage");
+            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/IndustryconnectSpecFlow/IndustryconnectSpecFlow/TestData.xlsx", "TimeAndMaterialPage");
 
             //Navigate to Time and Material page
             IWebElement administration = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
@@ -94,6 +94,10 @@ namespace Industryconnect.Pages
             //Click on Time and management
             IWebElement timeAndManagement = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]"));
             timeAndManagement.Click();
+            Thread.Sleep(1000);
+
+            IWebElement lastPageButton = driver.FindElement(By.XPath("//*[@title=\"Go to the last page\"]"));
+            lastPageButton.Click();
             Thread.Sleep(1000);
 
             //edit the first row of Time and Material
@@ -105,6 +109,12 @@ namespace Industryconnect.Pages
             Code.Click();
             Code.Clear();
             Code.SendKeys(ExcelLibHelpers.ReadData(3, "Code"));
+           
+            //change the description  
+            IWebElement Description = driver.FindElement(By.XPath("//*[@id=\"Description\"]"));
+            Description.Click();
+            Description.Clear();
+            Description.SendKeys(ExcelLibHelpers.ReadData(3, "Description"));
 
             //change the price
             IWebElement Price = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
@@ -112,17 +122,6 @@ namespace Industryconnect.Pages
             IWebElement PriceInput2 = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[2]"));
             PriceInput2.Clear();
             Price.SendKeys(ExcelLibHelpers.ReadData(3, "Price"));
-
-
-            //Price.Click();
-            //Thread.Sleep(2000);
-            //Price.SendKeys(ExcelLibHelpers.ReadData(3, "Price"));
-           
-            //change the description  
-            IWebElement Description = driver.FindElement(By.XPath("//*[@id=\"Description\"]"));
-            Description.Click();
-            Description.Clear();
-            Description.SendKeys(ExcelLibHelpers.ReadData(3, "Description"));
 
             //Click on save button
             IWebElement save1 = driver.FindElement(By.XPath("//*[@id=\"SaveButton\"]"));

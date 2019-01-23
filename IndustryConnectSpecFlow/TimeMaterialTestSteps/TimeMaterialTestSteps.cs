@@ -1,41 +1,56 @@
 ﻿using System;
-
+using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using Industryconnect.Helpers;
+using Industryconnect.Pages;
 
 namespace IndustryConnectSpecFlow.TimeMaterialTestSteps
 {
     [Binding]
     public class TimeMaterialTestSteps
     {
-        [Given("I have entered (.*) into the calculator")]
-        public void GivenIHaveEnteredSomethingIntoTheCalculator(int number)
+        [Given("I have logged into the portal")]
+        public void GivenIhaveloggedintotheportal()
         {
-            // TODO: implement arrange (recondition) logic
-            // For storing and retrieving scenario-specific data, 
-            // the instance fields of the class or the
-            //     ScenarioContext.Current
-            // collection can be used.
-            // To use the multiline text or the table argument of the scenario,
-            // additional string/Table parameters can be defined on the step definition
-            // method. 
+            CommonDriver.driver = new ChromeDriver(@"/Users/oiyo/Projects/IndustryconnectSpecFlow/IndustryconnectSpecFlow/");
 
-            ScenarioContext.Current.Pending();
+            LoginPage LoginObject = new LoginPage();
+            LoginObject.loginSteps(CommonDriver.driver);
+
         }
 
-        [When("I press add")]
-        public void WhenIPressAdd()
+        [When("I have navigated to the Time and Material Page")]
+        public void ThenIhavenavigatedtotheTimeandMaterialPage()
         {
-            // TODO: implement act (action) logic
-
-            ScenarioContext.Current.Pending();
+            HomePage HomeObject = new HomePage();
+            HomeObject.navigateToTM(CommonDriver.driver);
         }
 
-        [Then("the result should be (.*) on the screen")]
-        public void ThenTheResultShouldBe(int result)
+        [Then("I have added new Time and Material successfully")]
+        public void ThenIhaveaddednewTimeandMaterialsuccessfully()
         {
-            // TODO: implement assert (verification) logic
-
-            ScenarioContext.Current.Pending();
+            TimeMaterialPage TMObject = new TimeMaterialPage();
+            TMObject.addTM(CommonDriver.driver);
+            CommonDriver.driver.Close();
         }
+
+        [Then(@"I have edited the first Time and Material Successfully")]
+        public void ThenIHaveEditedTheFirstTimeAndMaterialSuccessfully()
+        {
+            TimeMaterialPage TMObject = new TimeMaterialPage();
+            TMObject.editTM(CommonDriver.driver);
+            CommonDriver.driver.Close();
+        }
+
+        [Then(@"I have deleted one Time and Material successfully")]
+        public void ThenIHaveDeletedOneTimeAndMaterialSuccessfully()
+        {
+
+            TimeMaterialPage TMObject = new TimeMaterialPage();
+            TMObject.deleteTM(CommonDriver.driver);
+            CommonDriver.driver.Close();
+        }
+
+
     }
 }

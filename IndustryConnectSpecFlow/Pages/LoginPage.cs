@@ -9,7 +9,7 @@ namespace Industryconnect.Pages
         public void loginSteps(IWebDriver driver)
         {
 
-            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/Industryconnect/Industryconnect/TestData.xlsx", "LoginPage");
+            ExcelLibHelpers.PopulateInCollection(@"/Users/oiyo/Projects/IndustryconnectSpecFlow/IndustryconnectSpecFlow/TestData.xlsx", "LoginPage");
 
             //Enter the url
             driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
