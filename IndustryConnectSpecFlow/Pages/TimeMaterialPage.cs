@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Industryconnect.Helpers;
+using IndustryConnectSpecFlow.Helpers;
 using OpenQA.Selenium;
 
 namespace Industryconnect.Pages
@@ -47,7 +48,8 @@ namespace Industryconnect.Pages
             save.Click();
 
             //Check if the time and management is created sucessfully
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
+            Wait.WaitForElementPresentAndEnabled(By.XPath(".//*[@title='Go to the last page']"), 3);
             IWebElement lastPage = driver.FindElement(By.XPath("//*[@title=\"Go to the last page\"]"));
             lastPage.Click();
             /*IWebElement codeToCheck = driver.FindElement(By.XPath("//td[text()='Oiyo']"));

@@ -72,6 +72,8 @@
     <Compile Include="TimeMaterialFeature\TimeAndMaterialFeature.feature.cs">
       <DependentUpon>TimeAndMaterialFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Wait.cs" />
+    <Compile Include="Helpers\CustomMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

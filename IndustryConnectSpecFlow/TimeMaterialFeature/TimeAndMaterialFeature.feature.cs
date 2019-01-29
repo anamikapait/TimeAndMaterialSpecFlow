@@ -65,19 +65,25 @@ namespace IndustryConnectSpecFlow.TimeMaterialFeature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Logged in user should be ale to add new Time and Material item")]
+        [NUnit.Framework.DescriptionAttribute("Add time and material from specflow feature file")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void LoggedInUserShouldBeAleToAddNewTimeAndMaterialItem()
+        [NUnit.Framework.TestCaseAttribute("hari", "123123", new string[0])]
+        public virtual void AddTimeAndMaterialFromSpecflowFeatureFile(string username, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logged in user should be ale to add new Time and Material item", new string[] {
-                        "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "mytag"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add time and material from specflow feature file", @__tags);
 #line 8
-    testRunner.Given("I have logged into the portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 9
-    testRunner.When("I have navigated to the Time and Material Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given(string.Format("I login with \"{0}\" and \"{1}\"", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
+    testRunner.When("I have navigated to the Time and Material Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
     testRunner.Then("I have added new Time and Material successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -88,13 +94,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void LoggedInUserShouldBeAbleToEditAnyTimeAndMaterial()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logged in user should be able to Edit any Time and Material", ((string[])(null)));
-#line 12
+#line 16
 this.ScenarioSetup(scenarioInfo);
-#line 13
+#line 17
     testRunner.Given("I have logged into the portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
+#line 18
     testRunner.When("I have navigated to the Time and Material Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
+#line 19
     testRunner.Then("I have edited the first Time and Material Successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -105,13 +111,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void LoggedInUserShouldBeAbleToDeleteAnyTimeAndMaterial()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Logged in user should be able to Delete any Time and Material", ((string[])(null)));
-#line 18
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line 19
+#line 23
     testRunner.Given("I have logged into the portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
+#line 24
     testRunner.When("I have navigated to the Time and Material Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 21
+#line 25
     testRunner.Then("I have deleted one Time and Material successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

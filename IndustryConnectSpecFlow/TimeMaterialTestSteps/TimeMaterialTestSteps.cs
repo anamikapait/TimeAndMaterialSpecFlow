@@ -19,6 +19,16 @@ namespace IndustryConnectSpecFlow.TimeMaterialTestSteps
 
         }
 
+        [Given(@"I login with ""(.*)"" and ""(.*)""")]
+        public void GivenILoginWithAnd(string p0, string p1)
+        {
+            CommonDriver.driver = new ChromeDriver(@"/Users/oiyo/Projects/IndustryconnectSpecFlow/IndustryconnectSpecFlow/");
+
+            LoginPage LoginObject = new LoginPage();
+            LoginObject.loginSteps(CommonDriver.driver, p0, p1);
+        }
+
+
         [When("I have navigated to the Time and Material Page")]
         public void ThenIhavenavigatedtotheTimeandMaterialPage()
         {
